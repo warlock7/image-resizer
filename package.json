@@ -1,0 +1,27 @@
+{
+  "name": "image-resizer",
+  "version": "1.0.0",
+  "description": "A production-style image resizer CLI built with Bun's native image API",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun --watch src/index.ts",
+    "typecheck": "bun tsc --noEmit",
+    "lint": "bun biome lint .",
+    "format": "bun biome format --write .",
+    "test": "bun test",
+    "test:unit": "bun test src/utils/__tests__ src/services/__tests__",
+    "test:integration": "bun test src/tests",
+    "check": "bun run typecheck && bun test && bun biome check ."
+  },
+  "dependencies": {
+    "yargs": "^18.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.15",
+    "@types/yargs": "^17.0.35",
+    "bun-types": "latest",
+    "typescript": "^6.0.3"
+  }
+}
