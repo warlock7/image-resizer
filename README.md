@@ -1,6 +1,6 @@
 # image-resizer
 
-A production-style image resizer CLI built with [Bun](https://bun.sh) and the native `Bun.Image` API.
+An image resizer CLI built with [Bun](https://bun.sh) and the native `Bun.Image` API.
 
 The app accepts an input image, resizes it, optionally converts it, and writes the result to an output directory.
 
