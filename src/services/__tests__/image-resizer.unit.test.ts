@@ -3,6 +3,7 @@ import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
+import { IMAGE_FORMAT } from "../../constants";
 import { resizeImage } from "../image-resizer";
 
 const ONE_BY_ONE_PNG = Uint8Array.fromBase64(
@@ -33,7 +34,7 @@ describe("resizeImage", () => {
       outputDir,
       options: {
         width: 1,
-        format: "png",
+        format: IMAGE_FORMAT.png,
       },
     });
 

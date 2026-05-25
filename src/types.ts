@@ -1,6 +1,8 @@
-export type FitMode = "fill" | "inside";
+import type { FIT_MODE, IMAGE_FORMAT } from "./constants";
 
-export type OutputFormat = "jpeg" | "png" | "webp" | "avif";
+export type FitMode = (typeof FIT_MODE)[keyof typeof FIT_MODE];
+
+export type OutputFormat = (typeof IMAGE_FORMAT)[keyof typeof IMAGE_FORMAT];
 
 export interface ResizeOptions {
   width?: number;

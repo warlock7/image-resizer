@@ -3,6 +3,7 @@ import { mkdtemp, rm, stat, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
+import { IMAGE_FORMAT } from "../../constants";
 import { assertFileExists, buildOutputPath, ensureDirectory, getFileSize } from "../files";
 
 const tempPaths: string[] = [];
@@ -22,7 +23,7 @@ describe("buildOutputPath", () => {
     expect(
       buildOutputPath("/images/photo.original.png", "output", {
         width: 800,
-        format: "jpeg",
+        format: IMAGE_FORMAT.jpeg,
       }),
     ).toBe(join("output", "photo.original_800xauto.jpeg"));
   });
@@ -32,7 +33,7 @@ describe("buildOutputPath", () => {
       buildOutputPath("photo.png", "output", {
         width: 400,
         height: 300,
-        format: "webp",
+        format: IMAGE_FORMAT.webp,
       }),
     ).toBe(join("output", "photo_400x300.webp"));
   });

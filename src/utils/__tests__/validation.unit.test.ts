@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 
-import { DEFAULT_RESIZE_OPTIONS } from "../../constants";
+import { DEFAULT_RESIZE_OPTIONS, FIT_MODE, IMAGE_FORMAT } from "../../constants";
 import { resolveResizeOptions } from "../validation";
 
 describe("resolveResizeOptions", () => {
@@ -13,15 +13,15 @@ describe("resolveResizeOptions", () => {
       resolveResizeOptions({
         width: 320,
         height: 240,
-        fit: "fill",
-        format: "webp",
+        fit: FIT_MODE.fill,
+        format: IMAGE_FORMAT.webp,
         quality: 90,
       }),
     ).toEqual({
       width: 320,
       height: 240,
-      fit: "fill",
-      format: "webp",
+      fit: FIT_MODE.fill,
+      format: IMAGE_FORMAT.webp,
       quality: 90,
     });
   });

@@ -3,6 +3,8 @@ import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
+import { IMAGE_FORMAT } from "../constants";
+
 const ONE_BY_ONE_PNG = Uint8Array.fromBase64(
   "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=",
 );
@@ -35,7 +37,7 @@ describe("image-resizer CLI", () => {
         "--width",
         "1",
         "--format",
-        "png",
+        IMAGE_FORMAT.png,
         "--out",
         outputDir,
       ],

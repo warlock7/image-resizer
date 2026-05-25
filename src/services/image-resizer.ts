@@ -1,3 +1,4 @@
+import { IMAGE_FORMAT } from "../constants";
 import type { ResizeImageParams, ResizeImageResult } from "../types";
 import { buildOutputPath, ensureDirectory, getFileSize } from "../utils/files";
 import { resolveResizeOptions } from "../utils/validation";
@@ -17,20 +18,20 @@ export async function resizeImage({
   });
 
   switch (resolvedOptions.format) {
-    case "jpeg":
+    case IMAGE_FORMAT.jpeg:
       await image.jpeg({ quality: resolvedOptions.quality }).write(outputPath);
       break;
-    case "png":
+    case IMAGE_FORMAT.png:
       await image
         .png({
           compressionLevel: Math.round(((100 - resolvedOptions.quality) / 100) * 9),
         })
         .write(outputPath);
       break;
-    case "webp":
+    case IMAGE_FORMAT.webp:
       await image.webp({ quality: resolvedOptions.quality }).write(outputPath);
       break;
-    case "avif":
+    case IMAGE_FORMAT.avif:
       await image.avif({ quality: resolvedOptions.quality }).write(outputPath);
       break;
   }

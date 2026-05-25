@@ -1,20 +1,25 @@
-import type { FitMode, OutputFormat, ResizeOptions } from "./types";
+export const IMAGE_FORMAT = {
+  jpeg: "jpeg",
+  png: "png",
+  webp: "webp",
+  avif: "avif",
+} as const;
 
-export const SUPPORTED_FORMATS = [
-  "jpeg",
-  "png",
-  "webp",
-  "avif",
-] as const satisfies readonly OutputFormat[];
+export const SUPPORTED_FORMATS = Object.values(IMAGE_FORMAT);
 
-export const SUPPORTED_FIT_MODES = ["fill", "inside"] as const satisfies readonly FitMode[];
+export const FIT_MODE = {
+  fill: "fill",
+  inside: "inside",
+} as const;
+
+export const SUPPORTED_FIT_MODES = Object.values(FIT_MODE);
 
 export const DEFAULT_RESIZE_OPTIONS = {
   width: 800,
-  fit: "inside",
-  format: "jpeg",
+  fit: FIT_MODE.inside,
+  format: IMAGE_FORMAT.jpeg,
   quality: 80,
-} as const satisfies Required<Pick<ResizeOptions, "width" | "fit" | "format" | "quality">>;
+} as const;
 
 export const DEFAULT_OUTPUT_DIR = "./output";
 
