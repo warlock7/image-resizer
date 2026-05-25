@@ -24,9 +24,12 @@
       },
       "suspicious": {
         "noConsole": "error",
-        "noExplicitAny": "error"
+        "noExplicitAny": "error",
+        "noTsIgnore": "error"
       },
       "style": {
+        "noNonNullAssertion": "error",
+        "useAsConstAssertion": "error",
         "useConst": "error",
         "useImportType": "error"
       }
